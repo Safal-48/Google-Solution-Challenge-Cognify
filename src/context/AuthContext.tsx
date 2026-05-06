@@ -107,6 +107,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // ── Restore JWT session on mount ──────────────────────────────────────
   useEffect(() => {
+    if (!auth) {
+      setLoading(false)
+      return
+    }
+
     // Handle Google Redirect Result
     getRedirectResult(auth)
       .then((result) => {

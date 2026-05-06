@@ -11,20 +11,20 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
 }
 
-const app = initializeApp(firebaseConfig)
+let auth: any
+let db: any
 
-let auth: ReturnType<typeof getAuth>
 try {
+  const app = initializeApp(firebaseConfig)
   auth = getAuth(app)
-  // If using emulator for demo mode:
+  db = getFirestore(app)
+  
   if (import.meta.env.VITE_USE_FIREBASE_EMULATOR === 'true') {
     connectAuthEmulator(auth, 'http://localhost:9099')
   }
-} catch {
-  auth = getAuth(app)
+} catch (error) {
+  console.error("Firebase initialization failed:", error)
 }
-
-const db = getFirestore(app)
 
 export { auth, db }
 export default app
