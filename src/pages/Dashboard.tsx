@@ -108,21 +108,21 @@ export default function Dashboard() {
   ]
 
   return (
-    <div className="p-10 max-w-[1300px] mx-auto space-y-12">
+    <div className="p-6 md:p-10 max-w-[1300px] mx-auto space-y-12">
       
       {/* ── Header ── */}
-      <motion.div variants={fadeUp(0)} initial="hidden" animate="visible" className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <motion.div variants={fadeUp(0)} initial="hidden" animate="visible" className="flex flex-col xl:flex-row xl:items-end justify-between gap-8 pt-16 lg:pt-0">
         <div>
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex flex-wrap items-center gap-3 mb-3">
              <div className="px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-[10px] font-bold text-violet-400 tracking-widest uppercase">System Overview</div>
              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-[#5a5a6e] uppercase tracking-widest">
                <span className="w-1 h-1 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" /> Real-time Data
              </div>
           </div>
-          <h1 className="text-5xl font-black text-white tracking-tighter leading-none">
+          <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none">
             {greeting}, <span className="gradient-text">{firstName}</span>
           </h1>
-          <p className="text-[#8a8a9a] mt-4 text-lg font-medium max-w-xl">
+          <p className="text-[#8a8a9a] mt-4 text-base md:text-lg font-medium max-w-xl">
             Welcome back to your cognitive workspace. Your performance metrics and next strategic actions are ready.
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function Dashboard() {
           <motion.div variants={fadeUp(0.1)} className="rounded-3xl p-6 bg-[#11111e] border border-white/5 shadow-2xl min-w-[280px]">
             <div className="flex items-center justify-between mb-4">
                <span className="text-[10px] font-black text-[#5a5a6e] uppercase tracking-widest">Growth Phase</span>
-               <span className="text-xs font-black text-violet-400">{(user.xp % 500) / 5}%</span>
+               <span className="text-xs font-black text-violet-400">{Math.floor((user.xp % 500) / 5)}%</span>
             </div>
             <div className="w-full h-2 rounded-full bg-white/5 mb-2 overflow-hidden">
                <motion.div 

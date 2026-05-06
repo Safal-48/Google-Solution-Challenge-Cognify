@@ -79,9 +79,10 @@ function jwtUserToCognify(u: JWTUser): CognifyUser {
 }
 
 function firebaseUserToCognify(u: FirebaseUser): CognifyUser {
+  const nameFromEmail = u.email ? u.email.split('@')[0].split(/[._-]/).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') : 'Learner'
   return {
     uid: u.uid,
-    name: u.displayName || 'User',
+    name: u.displayName || nameFromEmail,
     email: u.email || '',
     role: 'student',
     xp: 0,
