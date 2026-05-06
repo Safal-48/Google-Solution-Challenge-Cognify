@@ -49,7 +49,6 @@ export default function LandingPage() {
       
       {/* ── 3D Background ── */}
       <ThreeBackground />
-      <div className="fixed inset-0 z-0 bg-[#08080f]" />
 
       {/* ── Navbar ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex items-center justify-center pointer-events-none">
