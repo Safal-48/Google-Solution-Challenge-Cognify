@@ -141,13 +141,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           userStorage.set(freshUser)
         })
         .catch(() => {
-          // Token invalid — clear and force re-login
           tokenStorage.remove()
           userStorage.remove()
           setUser(null)
         })
         .finally(() => setLoading(false))
-    } else {
+    } else if (auth) {
       // No JWT — listen for Firebase Google session
       const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
         if (firebaseUser) {
@@ -160,6 +159,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setLoading(false)
       })
       return () => unsubscribe()
+    } else {
+      setLoading(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

@@ -11,11 +11,12 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
 }
 
-let auth: any
-let db: any
+let auth: any = null
+let db: any = null
+let app: any = null
 
 try {
-  const app = initializeApp(firebaseConfig)
+  app = initializeApp(firebaseConfig)
   auth = getAuth(app)
   db = getFirestore(app)
   
@@ -26,5 +27,4 @@ try {
   console.error("Firebase initialization failed:", error)
 }
 
-export { auth, db }
-export default app
+export { auth, db, app }
