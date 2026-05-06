@@ -6,7 +6,7 @@ import { Skeleton } from '../components/Skeleton'
 import Logo from '../components/Logo'
 import { HiOutlineUserGroup, HiOutlineAcademicCap, HiOutlineBolt, HiOutlineSparkles } from 'react-icons/hi2'
 
-const fadeUp = (delay: number) => ({
+const fadeUp: any = (delay: number) => ({
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] } },
 })

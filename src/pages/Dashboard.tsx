@@ -1,26 +1,23 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { userAPI, analyticsAPI, type AnalyticsData } from '../services/api'
-import { LineChart, Line, ResponsiveContainer, Tooltip } from 'recharts'
-import Logo from '../components/Logo'
-import { Skeleton } from '../components/Skeleton'
 import {
   HiOutlineDocumentText,
   HiOutlineLightBulb,
   HiOutlineChatBubbleLeftRight,
-  HiOutlineChartBar,
   HiOutlineSparkles,
   HiOutlineFire,
   HiOutlineTrophy,
   HiOutlineClock,
   HiOutlineBeaker,
   HiOutlineChevronRight,
-  HiOutlineBolt
 } from 'react-icons/hi2'
 
-const fadeUp = (delay: number) => ({
+import { motion } from 'framer-motion'
+import { useAuth } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { userAPI, analyticsAPI, type AnalyticsData } from '../services/api'
+import { LineChart, Line, ResponsiveContainer, Tooltip } from 'recharts'
+
+const fadeUp: any = (delay: number) => ({
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] } },
 })
@@ -60,7 +57,7 @@ export default function Dashboard() {
   useEffect(() => {
     if (user?.authMode === 'jwt') {
       userAPI.getStats()
-        .then(({ stats: s }) => setStats(s as Stats))
+        .then(({ stats: s }) => setStats(s as any as Stats))
         .catch(() => setStats(null))
         .finally(() => setStatsLoading(false))
       analyticsAPI.getOverview()

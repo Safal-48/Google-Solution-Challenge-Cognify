@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
 import { 
@@ -13,7 +13,7 @@ import {
 import Logo from '../components/Logo'
 import ThreeBackground from '../components/ThreeBackground'
 
-const fadeUp = (d = 0) => ({
+const fadeUp: any = (d = 0) => ({
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: d, ease: [0.16, 1, 0.3, 1] } }
 })

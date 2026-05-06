@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { recommendationsAPI, type RecommendationData, type StudyPlanItem, type RecommendationInsight } from '../services/api'
 import { useAuth } from '../context/AuthContext'
 
-const fadeUp = (d = 0) => ({
+const fadeUp: any = (d = 0) => ({
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: d, ease: [0.16, 1, 0.3, 1] } },
 })

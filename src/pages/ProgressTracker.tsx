@@ -10,7 +10,7 @@ import { analyticsAPI, type AnalyticsData } from '../services/api'
 import { useAuth } from '../context/AuthContext'
 
 const COLORS = ['#8b5cf6', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1']
-const fadeUp = (d: number) => ({
+const fadeUp: any = (d: number) => ({
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: d, ease: [0.16, 1, 0.3, 1] } }
 })

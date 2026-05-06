@@ -39,7 +39,7 @@ const features: Feature[] = [
   },
 ]
 
-const containerVariants = {
+const containerVariants: any = {
   hidden: {},
   visible: {
     transition: {
@@ -48,7 +48,7 @@ const containerVariants = {
   },
 }
 
-const cardVariants = {
+const cardVariants: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -60,7 +60,7 @@ const cardVariants = {
   },
 }
 
-const headerVariants = {
+const headerVariants: any = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
