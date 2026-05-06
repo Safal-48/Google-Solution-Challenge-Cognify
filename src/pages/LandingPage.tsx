@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
 import { 
@@ -49,7 +49,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#08080f] selection:bg-violet-500/30 selection:text-white overflow-hidden">
       
       {/* ── 3D Background ── */}
-      {/* <ThreeBackground /> */}
+      <ThreeBackground />
       <div className="fixed inset-0 z-0 bg-[#08080f]" />
 
       {/* ── Navbar ── */}
