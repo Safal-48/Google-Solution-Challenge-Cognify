@@ -50,9 +50,22 @@ export default function Dashboard() {
   const [statsLoading, setStatsLoading] = useState(true)
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null)
 
+  const [greeting, setGreeting] = useState('')
   const firstName = user?.name?.split(' ')[0] || 'Learner'
-  const hour = new Date().getHours()
-  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening'
+
+  useEffect(() => {
+    const updateGreeting = () => {
+      const hour = new Date().getHours()
+      if (hour < 12) setGreeting('Good morning')
+      else if (hour < 17) setGreeting('Good afternoon')
+      else if (hour < 21) setGreeting('Good evening')
+      else setGreeting('Good night')
+    }
+
+    updateGreeting()
+    const interval = setInterval(updateGreeting, 60000) // Update every minute
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     if (user?.authMode === 'jwt') {
